@@ -5,7 +5,7 @@ from flask import Flask, abort, request
 import redis
 
 
-if 'REDIS_HOSTL' in os.environ.keys():
+if 'REDIS_HOST' in os.environ.keys():
     REDIS_HOST = os.environ['REDIS_HOST']
 else:
     REDIS_HOST = "localhost"
