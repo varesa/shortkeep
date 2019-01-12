@@ -5,16 +5,16 @@ from flask import Flask, abort, request
 import redis
 
 
-if 'REDIS_URL' in os.environ.keys():
-    REDIS_URL = os.environ['REDIS_URL']
+if 'REDIS_HOSTL' in os.environ.keys():
+    REDIS_HOST = os.environ['REDIS_HOST']
 else:
-    REDIS_URL = "localhost"
+    REDIS_HOST = "localhost"
 
-print(f"Using {REDIS_URL} as redis URL")
+print(f"Using {REDIS_HOST} as redis URL")
 
 
 app = Flask(__name__)
-r = redis.Redis(host='localhost', port=6379, db=0)
+r = redis.Redis(host=REDIS_HOST, port=6379, db=0)
 
 
 def apply_suffix(number, suffix):
