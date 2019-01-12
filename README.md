@@ -53,4 +53,7 @@ to make sure that a process has ran in some timeframe.
 
 For example to monitor a CI/CD pipeline that should run hourly, one step could be to publish
 an "OK" with an expiry of two hours. IF the pipeline is unable to execute the step for two hours,
-the document will expire and monitoring tools can easily detect it.
+the document will expire and monitoring tools can easily detect it. 
+
+This is to handle cases more like "CI system is dead" rather than a normal job failure which 
+would be better to handle within the CI platform itself.
