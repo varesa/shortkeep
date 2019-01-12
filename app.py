@@ -49,4 +49,14 @@ def get(key):
     else:
         return content
 
+
+@app.route('/health')
+def health():
+    r.set('health', 111)
+    r.incr('health')
+    if r.get('health') == b'112':
+        return 'OK'
+    else:
+        return abort(500)
+
 app.run()

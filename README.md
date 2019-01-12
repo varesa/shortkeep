@@ -13,6 +13,15 @@ Prerequisites
 Usage
 -----
 
+New documents can be created with HTTP POST requests to http://host:port/<key>/<timeout>
+Key is the document key that will later be used to fetch the document. Timeout is specified
+in seconds but can also take optional suffixes 'm', 'h' or 'd'.
+
+`health` is a
+reserved key that can be overwritten with health checks. Doing a GET request to `/health`
+will do a basic health check on the connecion to redis and return 'OK' if everything
+looks normal
+
 ```
 # pip3 install -r requirements.txt
 # python3 app.py
@@ -31,7 +40,6 @@ After 15 minutes:
 <title>404 Not Found</title>
 <h1>Not Found</h1>
 <p>The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.</p>
-
 ```
 
 If you have redis running on some other address, you can use the `REDIS_HOST` environment variable.
